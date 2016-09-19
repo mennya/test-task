@@ -12,12 +12,12 @@ html(ng-app='agg' ng-strict-di)
 		//сначала загрузим обязательные стили, без которых никуда
 		include styles
 		link(type='image/x-icon' rel="shortcut icon" href='/favicon.ico?v=1')
-	body
+	body(layout='column')
 		include seo
 
 		http-progress
 
-		div(ui-view='main')
+		div(layout='column' flex md-swipe-right='$mdSidenav("left").open()' ui-view='main')
 
 
 	//-  vendor:js

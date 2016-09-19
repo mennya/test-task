@@ -1,11 +1,10 @@
-div(layout='row' flex md-swipe-right='$mdSidenav("left").open()')
+div(layout='row' flex )
 
-	div(ui-view='sidenav')
+	md-sidenav.md-sidenav-left.md-whiteframe-z2(md-component-id='left'
+	md-is-open='vm.opened'
+	md-is-locked-open='vm.sidenavLocked'
+	md-swipe-left='vm.opened=false'
+	ui-view='sidenav'
+	)
 
-	div(layout='column' flex)
-		div(ui-view='toolbar')
-
-		md-content.animate-slide-up.ng-cloak(
-		layout-padding
-		ui-view='content'
-		)
+	div(layout='column' flex ui-view='toolbar')
