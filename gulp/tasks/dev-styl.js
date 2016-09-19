@@ -17,7 +17,7 @@ exports.task = () =>
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
-		.pipe(g.cssnano({safe: true, discardUnused: false, keepSpecialComments: 0}))
+		.pipe(g.cleanCss())
 		.pipe(g.css2js())
 		.pipe(gulp.dest(CONFIG.PATHS.DIST))
 		.pipe(browserSync.reload(CONFIG.CONF.BROWSER_SYNC));

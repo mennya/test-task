@@ -38,17 +38,13 @@ gulp.task('main', () => {
 			browsers: ['last 2 versions'],
 			cascade: false
 		}))
-		.pipe(g.cssnano({discardUnused: false, keepSpecialComments: 0}))
+		.pipe(g.cleanCss())
 		.pipe(g.css2js())
 		.pipe(myStylFilter.restore)
 
 		// VENDOR CSS================================================
 		.pipe(vendorCssFilter)
-		.pipe(g.cssnano({
-			discardUnused: false,
-			keepSpecialComments: 0,
-			discardComments: {removeAll: true}
-		}))
+		.pipe(g.cleanCss())
 		.pipe(g.css2js())
 		.pipe(vendorCssFilter.restore)
 

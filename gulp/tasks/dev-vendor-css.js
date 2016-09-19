@@ -11,10 +11,6 @@ exports.task = () =>
 		.pipe(g.plumber({errorHandler: CONFIG.onError}))
 		.pipe(g.filter(['**/**.css']))
 		.pipe(g.concatUtil('bundle.css'))
-		.pipe(g.cssnano({
-			discardUnused: false,
-			keepSpecialComments: 0,
-			discardComments: {removeAll: true}
-		}))
+		.pipe(g.cleanCss())
 		.pipe(g.css2js())
 		.pipe(gulp.dest(CONFIG.PATHS.DIST + '/vendor'));

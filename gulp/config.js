@@ -9,7 +9,7 @@ var g = require('gulp-load-plugins')();
 var env = require('../env.json');
 const PATHS = {
 	SERVER: 'server/**/*.js',
-	CONFIG:'client/aconfig.js',
+	CONFIG: 'client/aconfig.js',
 	JS: 'client/app/**/*.js',
 	TS: 'client/app/**/*.ts',
 	MY_CSS: 'client/app/**/*.styl',

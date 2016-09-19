@@ -5,7 +5,7 @@ div(layout='row' flex md-swipe-right='$mdSidenav("left").open()')
 	div(layout='column' flex)
 		div(ui-view='toolbar')
 
-		md-content.ng-cloak(
+		md-content.animate-slide-up.ng-cloak(
 		layout-padding
 		ui-view='content'
 		)

@@ -1,0 +1,36 @@
+.animate-slide-up
+	transition-property: none;
+	transition-duration: .4s;
+	transition-timing-function: cubic-bezier(.25, .46, .45, .94);
+	opacity: 1
+
+.animate-slide-up.ng-enter
+	transform: translateY(100%)
+	opacity: 0
+
+.animate-slide-up.ng-enter.ng-enter-active
+	transition-property: all;
+	transform: translateY(0);
+	opacity: 1
+
+.animate-slide-up.ng-leave
+	transform: translateY(0);
+	opacity: 1
+
+.animate-slide-up.ng-leave.ng-leave-active
+	transition-property: all;
+	transform: translateY(-100%);
+	opacity: 0
+
+.animate-slide-up.ng-hide
+	transform: translateY(-100%);
+	opacity: 0
+
+.animate-slide-up.ng-hide-add-active, .animate-slide-up.ng-hide-remove-active
+	transition-property: all
+
+.animate-slide-down, .animate-slide-up
+	-webkit-backface-visibility: hidden;
+	-webkit-perspective: 1000px;
+	-webkit-transition-duration: .4s;
+	-webkit-transition-timing-function: cubic-bezier(.25, .46, .45, .94)
