@@ -1,0 +1,10 @@
+md-button(
+ng-class='{"md-primary" : isSelected()}'
+ui-sref='{{::section.sref}}'
+)
+	md-icon(
+	ny-md-icon='{{::section.icon}}'
+	style='padding-right: 7px;'
+	ng-if='::section.icon'
+	)
+	| {{::section | humanizeDoc}}

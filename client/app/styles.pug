@@ -1,0 +1,48 @@
+// куда же без ng-cloak
+style.
+    .ng-cloak {
+        display: none !important;
+    }
+
+// тут все для прелоадера
+style.
+    @-webkit-keyframes indeterminate-rotate {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    @keyframes indeterminate-rotate {
+        0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+
+    .preloader {
+        width: 120px;
+        height: 120px;
+        transform-origin: 60px 60px 60px;
+        margin-top: -60px;
+        margin-left: -60px;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        -webkit-animation: indeterminate-rotate 1s linear infinite;
+        animation: indeterminate-rotate 1s linear infinite;
+        z-index: 2;
+    }
+
+    .preloader path {
+        stroke: rgb(255, 82, 82);
+        stroke-width: 6px;
+    }

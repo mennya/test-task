@@ -1,0 +1,11 @@
+div(layout='row' flex md-swipe-right='$mdSidenav("left").open()')
+
+	div(ui-view='sidenav')
+
+	div(layout='column' flex)
+		div(ui-view='toolbar')
+
+		md-content.ng-cloak(
+		layout-padding
+		ui-view='content'
+		)

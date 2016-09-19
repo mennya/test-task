@@ -1,0 +1,31 @@
+md-card
+	md-card-title
+		md-card-title-text
+			.md-headline {{vm.catalog.title.default}}
+	md-card-content(layout="row" layout-xs="column" layout-align="space-between")
+		.md-media-xl.card-media
+			img(layout-padding ng-src='{{vm.storage.getLink(catalog.cover)}}' err-src='{{vm.storage.getLink("default")}}')
+		div(flex='80')
+			md-list(layout-padding)
+
+				.md-list-item-text(ng-repeat='(key, value) in vm.catalog.options')
+					h3 {{key}}
+					p {{value}}
+					md-divider
+
+				.md-list-item-text
+					h3 Description
+					p {{vm.catalog.description.default}}
+					md-divider
+
+				.md-list-item-text
+					h3 Platform support
+					md-chips(ng-model='vm.catalog.platformSupport' readonly='true')
+					md-divider
+
+				.md-list-item-text
+					md-button.md-primary(ng-repeat='bundle in vm.bundles' ng-href='{{vm.storage.getLink(bundle.resourceId)}}' target='_blank')
+						md-icon(ny-md-icon='download')
+						| download
+						md-tooltip status: {{bundle.status}}; version: {{bundle.version}}
+					md-divider

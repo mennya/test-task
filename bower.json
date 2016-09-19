@@ -1,0 +1,25 @@
+{
+  "name": "test-task",
+  "version": "0.0.1",
+  "homepage": "https://github.com/mennya/test-task",
+  "authors": [
+    "menya"
+  ],
+  "description": "aggregion test task",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-material": "1.1.1",
+    "angular-ui-router": "^0.3.1",
+    "angular-resource": "^1.5.8",
+    "ny-angular-material-icons": "^1.0.1",
+    "svg-morpheus": "^0.3.2"
+  }
+}

@@ -1,0 +1,21 @@
+md-button.md-button-toggle(
+ng-click='toggle()'
+ng-if='::section.title'
+ng-hide='roleCheck(section)'
+)
+	div(flex layout='row')
+		md-icon(
+		ny-md-icon='{{::section.icon}}'
+		style='padding-right: 7px;'
+		ng-if='::section.icon'
+		)
+		| {{::section.title}}
+		span(flex)
+		md-icon.md-toggle-icon(
+		ny-md-icon='arrow_drop_up'
+		ng-class='{"toggled": isOpen()}'
+		)
+
+ul.menu-toggle-list
+	li(ng-repeat='page in section.pages')
+		menu-link(section='page')

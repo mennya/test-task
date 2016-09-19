@@ -1,0 +1,27 @@
+doctype html
+html(ng-app='agg' ng-strict-di)
+	head
+		base(href='/')
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		meta(name='fragment' content='!')
+		meta(name='description' content='{{APP_CONSTS.APP_NAME}} test application')
+		meta(name='viewport' content='width=device-width,user-scalable=no')
+		title(ng-bind='title + " – " + APP_CONSTS.APP_NAME')
+
+		//сначала загрузим обязательные стили, без которых никуда
+		include styles
+		link(type='image/x-icon' rel="shortcut icon" href='/favicon.ico?v=1')
+	body
+		include seo
+
+		http-progress
+
+		div(ui-view='main')
+
+
+	//-  vendor:js
+	//- endinject
+
+	//-  inject:js
+	//- endinject

@@ -1,0 +1,15 @@
+md-toolbar.agg-nav.md-primary(layout='row' layout-align='start center')
+
+	md-button(ng-show='!vm.sidenavLocked'
+	aria-label='open'
+	ng-click='vm.$mdSidenav("left").toggle();'
+	)
+		md-icon(ny-md-icon='menu')
+
+	nav-back
+
+	.md-title(layout-padding) {{title}}
+
+	span(flex)
+	span(flex='10')
+
