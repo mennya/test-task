@@ -11,7 +11,11 @@ function config($urlRouterProvider, $stateProvider) {
 				templateUrl: '404.html',
 			}
 		},
-		title: '404'
+		resolve: {
+			title: function () {
+				return '404';
+			}
+		}
 	});
 	$urlRouterProvider.otherwise('/404');
 
