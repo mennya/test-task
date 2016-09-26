@@ -10,7 +10,7 @@ function config($locationProvider, $compileProvider) {
 
 }
 
-function run($rootScope, $mdSidenav, APP_CONSTS, $state) {
+function run($rootScope, $mdSidenav, APP_CONSTS, $state, $mdMedia) {
 
 	// for swipe
 	$rootScope.$mdSidenav = $mdSidenav;
@@ -22,6 +22,8 @@ function run($rootScope, $mdSidenav, APP_CONSTS, $state) {
 		_.forEach($state.$current.views, function (key, val) {
 			if ($state.$current.locals[val].title) $rootScope.title = $state.$current.locals[val].title;
 		});
+		// if title length bigger then 33 then do not fit on mobile
+		if (!$mdMedia('gt-sm') && $rootScope.title.length > 33) $rootScope.title = $rootScope.title.substring(0, 34) + '..';
 	});
 
 	// close sidenav after state change
