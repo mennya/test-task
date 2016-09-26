@@ -10,8 +10,6 @@ function SidenavController($scope, $mdMedia, APP_CONSTS, aggSettings, aggMenu) {
 	vm.lock = lock;
 	vm.nav = aggMenu.navRoutes;
 
-	console.log(vm.nav);
-
 	$scope.$watch(function() {
 		return !$mdMedia('gt-sm');
 	}, function(xs) {
