@@ -10,14 +10,16 @@ angular
 
 function errorHandlerInterceptor($q, $injector) {
 	var toastr;
+	var $state;
 
 	function getToaster() {
-
-		if (!toastr) {
-			toastr = $injector.get('$mdToast');
-		}
-
+		if (!toastr) toastr = $injector.get('$mdToast');
 		return toastr;
+	}
+
+	function getState() {
+		if (!$state) $state = $injector.get('$state');
+		return $state;
 	}
 
 	function notify(text) {
@@ -27,6 +29,7 @@ function errorHandlerInterceptor($q, $injector) {
 				.position('right top')
 				.hideDelay(3000)
 		);
+		getState().go('app.404');
 	}
 
 	return {
