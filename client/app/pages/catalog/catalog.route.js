@@ -27,7 +27,7 @@ function config($stateProvider, nyMdIconProvider) {
 				},
 				resolve: {
 					aggCatalog: 'aggCatalog',
-					catalogs: function(aggCatalog){
+					catalogs: function (aggCatalog) {
 						return aggCatalog.catalog.query().$promise;
 					},
 					title: function () {

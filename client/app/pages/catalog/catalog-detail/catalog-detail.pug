@@ -1,4 +1,9 @@
-md-card
+md-card(ng-if='!vm.catalog.title')
+	md-card-title
+		md-card-title-text
+			.md-headline Sorry, we can't find the catalog you are looking for :(
+
+md-card(ng-if='vm.catalog.title')
 	md-card-title
 		md-card-title-text
 			.md-headline {{vm.catalog.title.default}}

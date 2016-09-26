@@ -8,14 +8,7 @@ angular
 	.module('agg.core')
 	.factory('errorHandlerInterceptor', errorHandlerInterceptor);
 
-function errorHandlerInterceptor($q, $injector, notification) {
-	var $state;
-
-	function getState() {
-		if (!$state) $state = $injector.get('$state');
-		return $state;
-	}
-
+function errorHandlerInterceptor($q, notification) {
 	return {
 		'response': function (response) {
 			return response || $q.when(response);
@@ -33,8 +26,6 @@ function errorHandlerInterceptor($q, $injector, notification) {
 					notification.error('Sorry, something went wrong. The server returned a 500 "Internal Server Error" ');
 					break;
 			}
-
-			if ([400, 404, 500].indexOf(rejection.status) > -1) getState().go('app.404');
 
 			return $q.resolve(rejection);
 		}
