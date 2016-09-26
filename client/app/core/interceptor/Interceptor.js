@@ -8,7 +8,7 @@ angular
 	.module('agg.core')
 	.factory('errorHandlerInterceptor', errorHandlerInterceptor);
 
-function errorHandlerInterceptor($q, notification) {
+function errorHandlerInterceptor($q, $injector, notification) {
 	var $state;
 
 	function getState() {
