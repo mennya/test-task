@@ -18,6 +18,9 @@ function SidenavController($scope, $mdMedia, APP_CONSTS, aggSettings, aggMenu) {
 	});
 
 	function lock() {
+		// or after unlocking sidenav closes and opens simultaneously
+		vm.opened = !vm.sidenavLocked;
+
 		aggSettings.sidenavLocked = vm.sidenavLocked = !vm.sidenavLocked;
 	}
 
