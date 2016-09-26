@@ -4,7 +4,7 @@ md-card
 			.md-headline {{vm.catalog.title.default}}
 	md-card-content(layout="row" layout-xs="column" layout-align="space-between")
 		.md-media-xl.card-media
-			img(layout-padding ng-src='{{vm.storage.getLink(catalog.cover)}}' err-src='{{vm.storage.getLink("default")}}')
+			img(layout-padding ng-src='{{vm.storage.getLink(vm.catalog.cover)}}' err-src='{{vm.storage.getLink("default")}}')
 		div(flex='80')
 			md-list(layout-padding)
 
