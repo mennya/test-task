@@ -8,49 +8,33 @@ angular
 	.module('agg.core')
 	.factory('errorHandlerInterceptor', errorHandlerInterceptor);
 
-function errorHandlerInterceptor($q, $injector) {
-	var toastr;
+function errorHandlerInterceptor($q, notification) {
 	var $state;
-
-	function getToaster() {
-		if (!toastr) toastr = $injector.get('$mdToast');
-		return toastr;
-	}
 
 	function getState() {
 		if (!$state) $state = $injector.get('$state');
 		return $state;
 	}
 
-	function notify(text) {
-		getToaster().show(
-			getToaster().simple()
-				.textContent(text)
-				.position('right top')
-				.hideDelay(3000)
-		);
-		getState().go('app.404');
-	}
-
 	return {
 		'response': function (response) {
-			// do something on success
 			return response || $q.when(response);
 		},
-
 		'responseError': function (rejection) {
 
 			switch (rejection.status) {
 				case 400:
-					notify('Bad request.');
+					notification.error('Bad request.');
 					break;
 				case 404:
-					notify('Sorry, requested resource not found :(');
+					notification.error('Sorry, requested resource not found :(');
 					break;
 				case 500:
-					notify('Sorry, something went wrong. The server returned a 500 "Internal Server Error" ');
+					notification.error('Sorry, something went wrong. The server returned a 500 "Internal Server Error" ');
 					break;
 			}
+
+			if ([400, 404, 500].indexOf(rejection.status) > -1) getState().go('app.404');
 
 			return $q.resolve(rejection);
 		}
