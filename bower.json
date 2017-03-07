@@ -19,6 +19,6 @@
     "angular-resource": "1.5.8",
     "angular-material": "1.1.1",
     "angular-ui-router": "0.3.1",
-    "ny-angular-material-icons": "1.0.1"
+    "ny-angular-material-icons": "1.0.4"
   }
 }
